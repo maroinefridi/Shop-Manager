@@ -1,0 +1,94 @@
+
+ /* Colors */
+ .size-18px{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+ }
+  .size-15px{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 15px;
+ }
+ .grey{
+    color:grey;
+ }
+.green{
+    color:rgb(10, 222, 10);
+}
+.blue{
+        color:rgb(21, 126, 167);
+}
+.purple{
+    color: rgb(53, 53, 205);
+}
+
+/* BackgroundCOlors */
+.background-grey{
+    background-color: rgb(255, 232, 232);
+}
+.border-transparent{
+   border: 1px solid;
+}
+/* displays */
+.flex{
+    display:flex;
+}
+
+.grid{
+    display:grid;
+}
+
+ /* Position */
+ .space-evenly{
+    display: flex;
+    justify-content: space-evenly;
+ }
+ .center{
+    display: flex;
+    justify-content: center;
+ }
+
+.gap-5px{
+    display: flex;
+    gap:5px
+}
+.gap-20px{
+    display: flex;
+    gap:10%;
+}
+
+.space-5px{
+ display: flex;
+ flex-direction: column;
+ gap:5px;
+}
+.space-10px{
+ display: flex;
+ flex-direction: column;
+ gap:10px;
+}
+
+ /* Border */
+.padding-section{
+    padding:5%;
+}
+
+ .border-grey{
+    padding:8px;
+    border: 2px rgb(166, 160, 160) solid;
+    border-radius: 10px;
+ }
+
+ nav{
+    display:flex;
+    align-items: center;
+ }
+ .nav-ul{
+    display: flex;
+    justify-content: end;
+    gap:40px;
+ }
+
+ 
+
+
+
