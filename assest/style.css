@@ -137,12 +137,12 @@
    justify-content: center;
    align-items: center;
    background-color: aliceblue;
-   width:60%;
-   height: 70%;
+   width:70%;
+   height: 80%;
     padding:40px;
     border: 2px rgb(214, 203, 203) solid;
     border-radius: 20px;
-    gap:5px;
+    gap:2px;
     box-shadow:10px 10px 0px 5px   #4171a8 ;
     transition:0.1s ;
 }
@@ -154,6 +154,10 @@
    padding: 10px;
    width: 100%;
    border-radius: 20px;
+}
+.cardImg{
+   width: 125%;
+   border-radius: 10px;
 }
 
 .Productscontainer{
