@@ -1,31 +1,40 @@
+let products=[];
 const productsContainer=document.getElementById('products-Container');
 const searchInput=document.getElementById('Search-Input');
 
 fetchProducts();
-async function fetchProducts(){
+ function fetchProducts(){
+    spinerMessage();
+     fetch("http://localhost:3000/api/products")
+     .then(response=>response.json())
+     .then(data=>{
+      if(data==null){messageEmptyStock()}
+      setTimeout(()=>{productsContainer.innerHTML=""},1500) 
+       setTimeout(()=>{displayProducts(data)},1500) 
+      })
+      .catch(error=>{
+        console.log("une erreur est survenue: " ,error)
+        displayErorrServer()
+      });
+  }
 
-    const response = await fetch("http://localhost:3000/api/products");
-    console.log(response.status);
-    
-    if (!response.ok) {
-      const problem = await response.json();
-      console.log(problem.message);
-      return;
+    function messageEmptyStock(){
+      productsContainer.innerHTML=`<p style="color:white;" >Aucun produit disponible pour le moment.</p`
     }
 
-     let products = await response.json();
-     displayProducts(products)
-}
-
-// const res= await fetch("http://localhost:3000/api/products/image")
-
-// fetch
+    function displayErorrServer(){
+      productsContainer.innerHTML=`<p style="color:red;" >Impossible de charger les produits. Veuillez réessayer.</p`
+    }
+    function spinerMessage(){
+      productsContainer.innerHTML=`<p style="color:green;" >Chargement des produits....</p`
+    }
+    
 
  function displayProducts(products){
     products.forEach(product => {
       productsContainer.innerHTML+=` <article class="card">
         <img 
-          src=" http://127.0.0.1:3000${product.image}"
+          src="http://127.0.0.1:3000/${product.image}"
           class="cardImg"
           alt="product picture!!"
         />
@@ -41,11 +50,20 @@ async function fetchProducts(){
     });
 }
 
-searchInput.addEventListener('input',(event)=>{
-
-})
 
 
 
 
 
+
+
+// searchInput.addEventListener('input',()=>{
+//   let search=searchInput.value
+//   handlesearchsByName(products,search)
+//   // searchInput.value=""
+// })
+
+// function handlesearchsByName(products,search){
+//   let productsSearchfor=products.filter(product=>product.name==search)
+//   displayProducts(productsSearchfor);
+// }
