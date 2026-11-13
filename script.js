@@ -9,8 +9,8 @@ fetchProducts();
      .then(response=>response.json())
      .then(data=>{
       if(data==null){messageEmptyStock()}
-      setTimeout(()=>{productsContainer.innerHTML=""},1500) 
-       setTimeout(()=>{displayProducts(data)},1500) 
+      productsContainer.innerHTML="" 
+       displayProducts(data)
       })
       .catch(error=>{
         console.log("une erreur est survenue: " ,error)
@@ -51,19 +51,41 @@ fetchProducts();
 }
 
 
+searchInput.addEventListener('input',()=>{
+  let searchFor=searchInput.value
+
+
+handlesearchsByName(searchFor)
+  
+})
 
 
 
 
 
+function handlesearchsByName(searchFor){
+  let bull=false;
+  //
+  fetch(`http://localhost:3000/api/products?search=${searchFor}`)
+  .then(response=>response.json())
+  .then(data=>{
+  
+        //   // console.log("hello")
+        if(productsContainer.innerHTML==""){bull=true}
+        if(bull==true){
+           productsContainer.innerHTML="<p>the product you search for is not found pleas try again.</p>";
+    }
+    if(bull==false){
+      productsContainer.innerHTML="";
+   displayProducts(data)
+    }
+   
+    
+    
+  })
+  .catch(error=>{
+        console.log("the error is : "+ error)
+  });
+}
 
-// searchInput.addEventListener('input',()=>{
-//   let search=searchInput.value
-//   handlesearchsByName(products,search)
-//   // searchInput.value=""
-// })
 
-// function handlesearchsByName(products,search){
-//   let productsSearchfor=products.filter(product=>product.name==search)
-//   displayProducts(productsSearchfor);
-// }
