@@ -1,6 +1,6 @@
-let products=[];
+
 const productsContainer=document.getElementById('products-Container');
-const searchInput=document.getElementById('Search-Input');
+const searchesContainer=document.getElementById('searches-Container')
 
 fetchProducts();
  function fetchProducts(){
@@ -8,7 +8,7 @@ fetchProducts();
      fetch("http://localhost:3000/api/products")
      .then(response=>response.json())
      .then(data=>{
-      if(data==null){messageEmptyStock()}
+      if(data.length==0){messageEmptyStock()}
       productsContainer.innerHTML="" 
        displayProducts(data)
       })
@@ -51,42 +51,40 @@ fetchProducts();
 }
 
 
-searchInput.addEventListener('input',()=>{
-  let searchFor=searchInput.value
-  // const url = new URLSearchParams()
-  // url.set(searchInput.dataset.name, searchFor)
-  // console.log(url.toString())
-  // handlesearchsByName(url)
-handlesearchsByName(searchFor)
+searchesContainer.addEventListener('input',(event)=>{
+  const search= event.target.dataset.name // search = search, maxprice = maxPrice, category = categoryId, instock = inStock
+
+  const searchFor = event.target.value
+
+
+  if(searchFor) {
+    const url = new URLSearchParams()
+    url.set(search, searchFor)
+    handleSearchs(url)
+  }
+  else {
+    handleSearchs()
+  }
+
 })
 
-
-
-  
-  function handlesearchsByName(searchFor){
+  function handleSearchs(url = ""){
   // console.log(`http://localhost:3000/api/products?${url}`)
-  let valid=false;
-  //
-  fetch(`http://localhost:3000/api/products?search=${searchFor}`)
-  .then(response=>response.json())
-  .then(product=>{
-  
-        //   // console.log("hello")
-        if(product.length==0){
-           productsContainer.innerHTML="<p>the product you search for is not found pleas try again.</p>";
-          valid=true
-        }
-    if(valid==false){
-      productsContainer.innerHTML="";
-   displayProducts(product)
-    }
-   
-    
-    
+  let valid=true;
+  fetch(`http://localhost:3000/api/products?${url}`)
+  .then(response=> {
+    if(!response.ok) throw new Error(response.statusText)
+    return response.json()
   })
-  .catch(error=>{
-        console.log("the error is : "+ error)
-  });
+  .then(product=>{
+        if(product.length == 0){
+          productsContainer.innerHTML="<p>the product you search for is not found pleas try again.</p>";
+          valid=false
+        }
+    if(valid){
+      productsContainer.textContent="";
+      displayProducts(product)
+    }
+  })
+  .catch((error) => console.log("the error is : "+ error));
 }
-
-
