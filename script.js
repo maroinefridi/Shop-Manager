@@ -53,31 +53,32 @@ fetchProducts();
 
 searchInput.addEventListener('input',()=>{
   let searchFor=searchInput.value
-
-
+  // const url = new URLSearchParams()
+  // url.set(searchInput.dataset.name, searchFor)
+  // console.log(url.toString())
+  // handlesearchsByName(url)
 handlesearchsByName(searchFor)
-  
 })
 
 
 
-
-
-function handlesearchsByName(searchFor){
-  let bull=false;
+  
+  function handlesearchsByName(searchFor){
+  // console.log(`http://localhost:3000/api/products?${url}`)
+  let valid=false;
   //
   fetch(`http://localhost:3000/api/products?search=${searchFor}`)
   .then(response=>response.json())
-  .then(data=>{
+  .then(product=>{
   
         //   // console.log("hello")
-        if(productsContainer.innerHTML==""){bull=true}
-        if(bull==true){
+        if(product.length==0){
            productsContainer.innerHTML="<p>the product you search for is not found pleas try again.</p>";
-    }
-    if(bull==false){
+          valid=true
+        }
+    if(valid==false){
       productsContainer.innerHTML="";
-   displayProducts(data)
+   displayProducts(product)
     }
    
     
