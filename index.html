@@ -21,7 +21,7 @@
     </header>
 
     <main>
-      <section>
+      <section id="searches-Container">
         <div class="padding">
           <label class="size-20px greySolid">Search For Your Product :</label>
         </div>
@@ -44,17 +44,15 @@
             <input
               id="Search-By-MaxPrix"
               type="number"
+              data-name="maxPrice"
               placeholder="Search by Max prix"
             />
             <label
               ><i class="fa-solid fa-layer-group blue-sky"></i>Search by
               category</label
             >
-            <select id="Search-By-Category">
-              <option value="">all</option>
-              <option value="">all</option>
-              <option value="">all</option>
-              <option value="">all</option>
+            <select data-name="categoryId" id="category-filter">
+              <option value="">Toutes les catégories</option>
             </select>
           </section>
         </section>
