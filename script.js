@@ -115,3 +115,6 @@ function displayErorrServer(){
 function spinerMessage(){
   productsContainer.innerHTML=`<p style="color:green;" >Chargement des produits....</p`
 }
+
+
+productsContainer

@@ -16,6 +16,7 @@
   </head>
   <body>
     <header class="border-grey">
+          <a href="index.html"><i class="fa-solid fa-circle-chevron-left size-20px blue"></i></a>
       <div>
         <h1>Candy <i class="fa-solid fa-truck-fast blue"></i> Shop</h1>
         <p class="size-18px">Découvrez notre catalogue de produits</p>
@@ -40,6 +41,120 @@
      <section id="myproducts-Container">
 
      </section>
+
+
+
+      <section id="orders-section">
+        <div class="header-orderSection">
+          <button onclick="cancelOrdersSection()" class="Btn-cncelOrdersection">
+            <i class="fa-regular fa-circle-left blue"></i>
+          </button>
+          <strong class="size-20px blue-sky">My orders</strong>
+        </div>
+        <div id="orders-Container">
+          <article class="order-card">
+            <div>
+              <img
+                src="http://127.0.0.1:3000/${product.image}"
+                class="cardImg"
+                alt="product picture!!"
+              />
+            </div>
+            <div>
+              <h3>${product.name}</h3>
+              <p>Price : ${product.price}$</p>
+              <strong>Quantité:${product.stock}</strong>
+              <strong>Quantité:${Sous-total}</strong>
+            </div>
+            <div class="space-10px">
+              <button id="Btn-confirmeOrder">
+                <i class="fa-solid fa-check green"></i> Confirme
+              </button>
+              <button id="Btn-deleteOrder">
+                <i class="fa-solid fa-trash red"></i> Delete
+              </button>
+            </div>
+          </article>
+          <article class="order-card">
+            <div>
+              <img
+                src="http://127.0.0.1:3000/${product.image}"
+                class="cardImg"
+                alt="product picture!!"
+              />
+            </div>
+            <div>
+              <h3>${product.name}</h3>
+              <p>Price : ${product.price}$</p>
+              <strong>Quantité:${product.stock}</strong>
+            </div>
+            <div class="space-10px">
+              <button id="Btn-confirmeOrder">
+                <i class="fa-solid fa-check green"></i> Confirme
+              </button>
+              <button id="Btn-deleteOrder">
+                <i class="fa-solid fa-trash red"></i> Delete
+              </button>
+            </div>
+          </article>
+          <article class="order-card">
+            <div>
+              <img
+                src="http://127.0.0.1:3000/${product.image}"
+                class="cardImg"
+                alt="product picture!!"
+              />
+            </div>
+            <div>
+              <h3>${product.name}</h3>
+              <p>Price : ${product.price}$</p>
+              <strong>Quantité:${product.stock}</strong>
+            </div>
+            <div class="space-10px">
+              <button id="Btn-confirmeOrder">
+                <i class="fa-solid fa-check green"></i> Confirme
+              </button>
+              <button id="Btn-deleteOrder">
+                <i class="fa-solid fa-trash red"></i> Delete
+              </button>
+            </div>
+          </article>
+        </div>
+
+        <div class="order-sectionFooter">
+          <strong class="size-20px">Total:50$</strong>
+          <button onclick="displayForm()" class="blue" ><i class="fa-solid fa-cart-shopping blue"></i> Complet Your order</button>
+        </div>
+      </section>
+
+      <section id="form">
+        <form id="form-OrderProducts" >
+          <i onclick="cancelForm()" class="fa-solid fa-circle-chevron-right"></i>
+        <div class="column gap-5px">
+          <label for="name">Enter your Full Name: </label>
+          <input type="text" name="name" id="" placeholder="MarouaneFridi..">
+        </div>
+        <div class="column gap-5px">
+          <label for="email">Enter your email: </label>
+          <input type="email" name="email" id="email" placeholder="Maroune*****@gmail.com..">
+        </div>
+        <div class="column gap-5px">
+          <label for="email">Enter your  phone number: </label>
+          <input type="email" name="phone" id="email" placeholder="077883....">
+        </div>
+        <div class="column gap-5px">
+          <label for="number">Enter your city: </label>
+          <input type="email" name="city" id="email" placeholder="Youssoufia..">
+        </div>
+        <div class="column gap-5px">
+          <label for="email">Code postal: </label>
+          <input type="email" name="codePostal" id="email" placeholder="25000..">
+        </div>
+        <div>
+          <button>Add to Card</button>
+        </div>
+      </form>
+    </section>
     </main>
 
     <footer class="border-grey">

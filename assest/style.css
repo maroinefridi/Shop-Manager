@@ -333,7 +333,11 @@ box-shadow: 10px 10px 0px 5px rgb(206, 206, 201);
  }
 
 
-
+.box-panier{
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+}
 
 
 
