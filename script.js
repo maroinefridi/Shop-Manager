@@ -48,6 +48,7 @@ fetchCategory();
       <p>${product.description}</p>
       <p>Price : ${product.price}$</p>
       <strong>in stock:${product.stock}</strong>
+      <input type="number" class="card-input" placeholder="quantité">
       <button class="blue" data-id="${product.id}">
       <i class="fa-solid fa-cart-shopping"></i> add product
       </button>

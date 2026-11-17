@@ -27,12 +27,11 @@
 .greySolid{
     color:#000000;
 }
-.golden{
-   color:rgb(190, 144, 37);
-}
+
 .red{
    color: red;
 }
+
 header{
    display: flex;
    justify-content: space-between;
@@ -57,6 +56,10 @@ header button{
 /* displays */
 .flex{
     display:flex;
+}
+.column{
+   display:flex;
+   flex-direction:column;
 }
 
  /* Position */
@@ -183,6 +186,13 @@ header button{
    width: 100%;
    border-radius: 20px;
 }
+.card-input{
+   width:70px;
+   height: 30px;
+   padding:10px;
+   border-radius: 20px;
+   border-color: #4171a8;
+}
 
 .header-orderSection{
    display: flex;
@@ -208,7 +218,6 @@ header button{
    top:0;
    right: 0;
    flex-direction: column;
-   /* align-items: center; */
    width:60vw;
    height: 100%;
    border: 1px silver solid;
@@ -246,6 +255,64 @@ header button{
    padding: 10px;
    width: 200px;
    border-radius: 20px;
+}
+#form{
+    display: none;
+    position: fixed;
+    top:10%;
+    right: 50%;
+}
+#form i{
+  padding-left: 20rem ;
+  padding-top: 5px;
+  font-size: 25px;
+  color:rgb(224, 125, 201);
+}
+#form-OrderProducts{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   padding: 60px;
+   width: 18vw;
+   height: 60vh;
+   gap: 20px;
+   border: 2px silver solid;
+   border-radius: 20px;
+   background-color: beige;
+box-shadow: 10px 10px 0px 5px rgb(206, 206, 201);
+
+}
+
+#form-OrderProducts input{
+      width:15rem;
+      height: 20px;
+      padding: 5px;
+      border: 2px silver solid;
+      border-radius: 10px;
+}
+#form-OrderProducts button{
+   width:8rem;
+   height:50px;
+   border: 2px rgb(188, 111, 210) solid;
+   background-color: beige;
+   border-radius: 20px;
+}
+
+.order-sectionFooter{
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   padding: 20px;
+}
+.order-sectionFooter button{
+     width:10rem;
+   height:50px;
+   border: 2px rgb(64, 90, 109) solid;
+   background-color: rgba(21, 13, 2, 0.429);
+   border-radius: 20px;
+   padding: 5px;
+   margin-bottom: 20px;
 }
 
  @media (max-width:768px) {
