@@ -63,79 +63,12 @@ fetchCategory();
          filtreByCategory.innerHTML+=`<option value="${cat.id}">${cat.name}</option>
   `
     }
-
-    // let box=[];
-    // let newbox=[];
-    // let objet={};
-    // let i = 0;
-    // let category = {
-    //   cat_id : 0,
-    //   cat : ""
-    // };
-    // let cat =[];
-    // while(i < products.length){
-    //   cat.push(products[i].categoryName)
-    //   i++;
-    // }
-    // for(let _ in products){
-    //     if(category['cat'].includes(cat[_])){
-    //       continue
-    //     }
-    //     else{
-    //       category['cat'] = (products[_].categoryName)
-    //       category['cat_id'] = (products[_].categoryId)
-    //     }
-    // }
-    // console.log(category['cat']);
-    
-//  for(let product of products){
-//    let objet={
-//       category:product.categoryName,
-//       categoryId:product.categoryId
-//     }
-//     box.push(objet)
-//  }
-// console.log(box);
-
-
-//  for(let bx of box){
-//   for(let x of newbox){
-//     if(!x.category.includes(bx.category)){
-//         newbox.push()
-//     }
-//   }
-//  }
-
-// console.log(newbox)
-// for(let cat in box){
-//   if(cat.category.includes(cat.))
-// }
-
-
-  //   for(let ){
-  //             filtreByCategory.innerHTML+=`
-  // <option value="${category.cat_id}">${category.cat}</option>`
-  //   }
-    
-
-    // for(let product of products){
-
-// }
-// console.log(box)
-// box=box.filter((product)=>{product.categoryName!=product.categoryName})
-// console.log(box);
-
-// filtreByCategory.innerHTML+=`<option value="${product.categoryId}">${product.categoryName}</option>
-//   `
-//   console.log(product.categoryName)
-
-
 }
 
 
 
 searchesContainer.addEventListener('input',(event)=>{
-  const search= event.target.dataset.name // search = search, maxprice = maxPrice, category = categoryId, instock = inStock
+  const search= event.target.dataset.name 
   
   const searchFor = event.target.value
   
@@ -151,7 +84,6 @@ searchesContainer.addEventListener('input',(event)=>{
 })
 
 function handleSearchs(url = ""){
-  // console.log(`http://localhost:3000/api/products?${url}`)
   let valid=true;
   fetch(`http://localhost:3000/api/products?${url}`)
   .then(response=> {
