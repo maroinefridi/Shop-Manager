@@ -16,14 +16,22 @@
   </head>
   <body>
     <header class="border-grey">
-      <h1>Candy <i class="fa-solid fa-gun blue"></i> Shop</h1>
-      <p class="size-18px">Découvrez notre catalogue de produits</p>
+      <div>
+        <h1>Candy <i class="fa-solid fa-truck-fast blue"></i> Shop</h1>
+        <label class="size-18px">Découvrez notre catalogue de produits</label>
+      </div>
+      <div class="box-panier">
+        <a href="MyProducts.html" class="size-20px blue">My products</a>
+        <button onclick="displayOrdersSection()" id="MyOrders-button">
+          <i class="fa-solid fa-cart-shopping blue"></i>
+        </button>
+      </div>
     </header>
 
     <main>
       <section id="searches-Container">
         <div class="padding">
-          <label class="size-20px greySolid">Search For Your Product :</label>
+          <label class="size-20px greySolid">Search For Product :</label>
         </div>
         <section class="border-grey space-10px">
           <section>
@@ -51,98 +59,131 @@
               ><i class="fa-solid fa-layer-group blue-sky"></i>Search by
               category</label
             >
-            <select data-name="categoryId" id="category-filter">
-              
-            </select>
+            <select data-name="categoryId" id="category-filter"></select>
           </section>
         </section>
       </section>
-      
-        <section id="products-Container" class="Productscontainer border-grey">
-          <!-- <article class="card">
-          <img
-            src="
-            "
-            alt=""
-          />
-          <h3>ps5</h3>
-          <p>ahsan playfik ya youcode</p>
-          <p>$499</p>
-          <button><i class="fa-solid fa-cart-shopping"></i>add product</button>
-        </article>
-        <article class="card">
-          <img
-            src="
-            "
-            alt=""
-          />
-          <h3>ps5</h3>
-          <p>ahsan playfik ya youcode</p>
-          <p>$499</p>
-          <button><i class="fa-solid fa-cart-shopping"></i>add product</button>
-        </article>
-        <article class="card">
-          <img
-            src="
-            "
-            alt=""
-          />
-          <h3>ps5</h3>
-          <p>ahsan playfik ya youcode</p>
-          <p>$499</p>
-          <button><i class="fa-solid fa-cart-shopping"></i>add product</button>
-        </article>
-        <article class="card">
-          <img
-            src="
-            "
-            alt=""
-          />
-          <h3>ps5</h3>
-          <p>ahsan playfik ya youcode</p>
-          <p>$499</p>
-          <button><i class="fa-solid fa-cart-shopping"></i>add product</button>
-        </article>
-        <article class="card">
-          <img
-            src="
-            "
-            alt=""
-          />
-          <h3>ps5</h3>
-          <p>ahsan playfik ya youcode</p>
-          <p>$499</p>
-          <button class="blue">
-            <i class="fa-solid fa-cart-shopping"></i>add product
+
+      <section
+        id="products-Container"
+        class="Productscontainer border-grey"
+      ></section>
+
+      <section id="orders-section">
+        <div class="header-orderSection">
+          <button onclick="cancelOrdersSection()" class="Btn-cncelOrdersection">
+            <i class="fa-regular fa-circle-left blue"></i>
           </button>
-        </article>
-        <article class="card">
-          <img
-            src="
-            "
-            alt=""
-          />
-          <h3>ps5</h3>
-          <p>ahsan playfik ya youcode</p>
-          <p>$499</p>
-          <button><i class="fa-solid fa-cart-shopping"></i>add product</button>
-        </article>
-        <article class="card">
-          <img
-            src="
-            "
-            alt=""
-          />
-          <h3>ps5</h3>
-          <p>ahsan playfik ya youcode</p>
-          <p>$499</p>
-          <button><i class="fa-solid fa-cart-shopping"></i>add product</button>
-        </article> -->
-        </section>
+          <strong class="size-20px blue-sky">My orders</strong>
+        </div>
+        <div id="orders-Container">
+          <article class="order-card">
+            <div>
+              <img
+                src="http://127.0.0.1:3000/${product.image}"
+                class="cardImg"
+                alt="product picture!!"
+              />
+            </div>
+            <div>
+              <h3>${product.name}</h3>
+              <p>Price : ${product.price}$</p>
+              <strong>Quantité:${product.stock}</strong>
+              <strong>Quantité:${Sous-total}</strong>
+            </div>
+            <div class="space-10px">
+              <button id="Btn-confirmeOrder">
+                <i class="fa-solid fa-check green"></i> Confirme
+              </button>
+              <button id="Btn-deleteOrder">
+                <i class="fa-solid fa-trash red"></i> Delete
+              </button>
+            </div>
+          </article>
+          <article class="order-card">
+            <div>
+              <img
+                src="http://127.0.0.1:3000/${product.image}"
+                class="cardImg"
+                alt="product picture!!"
+              />
+            </div>
+            <div>
+              <h3>${product.name}</h3>
+              <p>Price : ${product.price}$</p>
+              <strong>Quantité:${product.stock}</strong>
+            </div>
+            <div class="space-10px">
+              <button id="Btn-confirmeOrder">
+                <i class="fa-solid fa-check green"></i> Confirme
+              </button>
+              <button id="Btn-deleteOrder">
+                <i class="fa-solid fa-trash red"></i> Delete
+              </button>
+            </div>
+          </article>
+          <article class="order-card">
+            <div>
+              <img
+                src="http://127.0.0.1:3000/${product.image}"
+                class="cardImg"
+                alt="product picture!!"
+              />
+            </div>
+            <div>
+              <h3>${product.name}</h3>
+              <p>Price : ${product.price}$</p>
+              <strong>Quantité:${product.stock}</strong>
+            </div>
+            <div class="space-10px">
+              <button id="Btn-confirmeOrder">
+                <i class="fa-solid fa-check green"></i> Confirme
+              </button>
+              <button id="Btn-deleteOrder">
+                <i class="fa-solid fa-trash red"></i> Delete
+              </button>
+            </div>
+          </article>
+        </div>
+
+        <div class="order-sectionFooter">
+          <strong class="size-20px">Total:50$</strong>
+          <button onclick="displayForm()" class="blue" ><i class="fa-solid fa-cart-shopping blue"></i> Complet Your order</button>
+        </div>
+      </section>
+
+      <section id="form">
+        <form id="form-OrderProducts" >
+          <i onclick="cancelForm()" class="fa-solid fa-circle-chevron-right"></i>
+        <div class="column gap-5px">
+          <label for="name">Enter your Full Name: </label>
+          <input type="text" name="name" id="" placeholder="MarouaneFridi..">
+        </div>
+        <div class="column gap-5px">
+          <label for="email">Enter your email: </label>
+          <input type="email" name="email" id="email" placeholder="Maroune*****@gmail.com..">
+        </div>
+        <div class="column gap-5px">
+          <label for="email">Enter your  phone number: </label>
+          <input type="email" name="phone" id="email" placeholder="077883....">
+        </div>
+        <div class="column gap-5px">
+          <label for="number">Enter your city: </label>
+          <input type="email" name="city" id="email" placeholder="Youssoufia..">
+        </div>
+        <div class="column gap-5px">
+          <label for="email">Code postal: </label>
+          <input type="email" name="codePostal" id="email" placeholder="25000..">
+        </div>
+        <div>
+          <button>Add to Card</button>
+        </div>
+      </form>
+    </section>
     </main>
 
     <footer class="border-grey">
-      <h1>Candy <i class="fa-solid fa-gun blue"></i> Shop</h1>
+      <h1>Candy <i class="fa-solid fa-truck-fast blue"></i> Shop</h1>
       <div class="center gap-20px padding-buttom">
         <div>
           <h3>Fast Delivery</h3>
@@ -162,5 +203,6 @@
       </div>
     </footer>
     <script src="script.js"></script>
+    <script src="ux.js"></script>
   </body>
 </html>
