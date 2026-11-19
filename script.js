@@ -37,7 +37,8 @@ fetchCategory();
   
   function displayProducts(products){
     products.forEach(product => {
-      productsContainer.innerHTML+=` <article class="card">
+      if(product.stock==0){
+        productsContainer.innerHTML+=` <form type="submit" id="product-Card" class="card">
       <img 
       src="http://127.0.0.1:3000/${product.image}"
       class="cardImg"
@@ -47,18 +48,36 @@ fetchCategory();
       <h3>${product.name}</h3>
       <p>${product.description}</p>
       <p>Price : ${product.price}$</p>
-      <strong>in stock:${product.stock}</strong>
-      <input type="number" class="card-input" placeholder="quantité">
-      <button class="blue" data-id="${product.id}">
-      <i class="fa-solid fa-cart-shopping"></i> add product
+      <strong class="stock" data-stock="${0}">Out Of Stock</strong>
+      <input class="QuantiteInput card-input" type="number"  placeholder="quantité">
+      <button  id="btn-AddtoCard" class="blue" data-id="${product.id}">
+      <i class="fa-solid fa-cart-shopping"></i> add To Card
       </button>
-      </article>`
+      </form>`
+      }
+
+
+      productsContainer.innerHTML+=` <form type="submit" id="product-Card" class="card">
+      <img 
+      src="http://127.0.0.1:3000/${product.image}"
+      class="cardImg"
+      alt="product picture!!"
+      />
+      <p>category: ${product.categoryName}</p>
+      <h3>${product.name}</h3>
+      <p>${product.description}</p>
+      <p>Price : ${product.price}$</p>
+      <strong class="stock" data-stock="${product.stock}">in stock : ${product.stock}</strong>
+      <input class="QuantiteInput card-input" type="number"  placeholder="quantité">
+      <button  id="btn-AddtoCard" class="blue" data-id="${product.id}">
+      <i class="fa-solid fa-cart-shopping"></i> add To Card
+      </button>
+      </form>`
     });
   }
   
   function displayCategoryOptions(category){
-    console.log(category);
-    
+
     filtreByCategory.innerHTML=`<option>Toutes les catégories</option>`
     for(let cat of category){
          filtreByCategory.innerHTML+=`<option value="${cat.id}">${cat.name}</option>
@@ -116,5 +135,3 @@ function spinerMessage(){
   productsContainer.innerHTML=`<p style="color:green;" >Chargement des produits....</p`
 }
 
-
-productsContainer

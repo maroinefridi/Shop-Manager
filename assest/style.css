@@ -266,7 +266,7 @@ header button{
   padding-left: 20rem ;
   padding-top: 5px;
   font-size: 25px;
-  color:rgb(224, 125, 201);
+  color:rgb(142, 227, 240);
 }
 #form-OrderProducts{
    display: flex;
@@ -279,8 +279,8 @@ header button{
    gap: 20px;
    border: 2px silver solid;
    border-radius: 20px;
-   background-color: beige;
-box-shadow: 10px 10px 0px 5px rgb(206, 206, 201);
+   background-color: rgb(200, 205, 214);
+box-shadow: 10px 10px 0px 5px rgb(186, 192, 207);
 
 }
 

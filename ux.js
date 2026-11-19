@@ -9,10 +9,6 @@ function cancelOrdersSection(){
      orderSection.style.display='none';
 }
 
-function displayForm(){
-        formOrder.style.display='block';
-}
-
 function cancelForm(){
     formOrder.style.display='none';
 }
