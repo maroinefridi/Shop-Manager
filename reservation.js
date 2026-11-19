@@ -1,11 +1,7 @@
 // const quantiteInput=document.getElementById('QuantiteInput')
 const productCard = document.getElementById('product-Card')
 const btnAddtoCard = document.getElementById('btn-AddtoCard')
-
-
-// btnAddtoCard.addEventListener('click',(event)=>{
-//     event.preventDefault();
-// })
+const formOrderProducts = document.getElementById('form-OrderProducts')
 
 productsContainer.addEventListener('click', (event) => {
     event.preventDefault()
@@ -21,12 +17,13 @@ productsContainer.addEventListener('click', (event) => {
     // input.value=""
 })
 
+
 function addToCardValidation(input, stock, btnAddtoCard) {
     const QuantityInput = Number(input.value)
     const aviableStock = Number(stock.dataset.stock)
     const productId = btnAddtoCard.dataset.id;
 
-    if(aviableStock==0){
+    if (aviableStock == 0) {
         Swal.fire({
             icon: "error",
             title: "Opps...",
@@ -35,7 +32,7 @@ function addToCardValidation(input, stock, btnAddtoCard) {
         return;
     }
     if (input.value.length == 0) {
-          Swal.fire({
+        Swal.fire({
             icon: "error",
             title: "Be careful...",
             text: "U forget to Put a Quantity number!",
@@ -51,16 +48,36 @@ function addToCardValidation(input, stock, btnAddtoCard) {
         return;
     }
 
-
-    console.log(QuantityInput)
-    console.log(aviableStock);
-    console.log(btnAddtoCard.dataset.id)
-    const Url = new URLSearchParams()
-    Url.set("reservation", productId)
-    handleReseration(Url)
-
+    recoverFormData(QuantityInput, aviableStock, productId)
 }
 
-function handleReseration() {
 
+function recoverFormData(QuantityInput, aviableStock, productId) {
+    formOrder.style.display = 'block';
+
+    formOrderProducts.addEventListener('submit', (event) => {
+
+        event.preventDefault();
+
+        const inputData = new FormData(formOrderProducts);
+        const formData = Object.fromEntries(inputData.entries())
+
+        if (Object.values(formData).some((value) => value.trim() == "")) {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "please put ur correct informations !",
+            });
+            return;
+        }
+        
+
+        formOrder.style.display = 'none';
+        console.log(QuantityInput);
+        console.log(aviableStock);
+        console.log(productId);
+        console.log(formData);
+        //   inputData.value=""
+
+    })
 }
